@@ -7,12 +7,11 @@ pipeline {
     }
 
     stages {
-        stage('Clone') {
-            steps {
-                git 'https://github.com/Bennyhinn007/Devops-Project.git'
-            }
-        }
-
+stage('Clone') {
+    steps {
+        git branch: 'main', url: 'https://github.com/Bennyhinn007/Devops-Project.git'
+    }
+}
         stage('Install Node + Dependencies') {
             steps {
                 sh '''
