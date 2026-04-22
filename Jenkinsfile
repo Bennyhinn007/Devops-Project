@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'NodeJS'
-    }
-
     environment {
         EC2_IP = '54.252.232.174'
         KEY = '/c/Users/benny/Downloads/project.pem'
@@ -17,9 +13,13 @@ pipeline {
             }
         }
 
-        stage('Install') {
+        stage('Install Node + Dependencies') {
             steps {
-                sh 'npm install'
+                sh '''
+                curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+                sudo apt-get install -y nodejs
+                npm install
+                '''
             }
         }
 
@@ -39,3 +39,5 @@ pipeline {
         }
     }
 }
+
+
