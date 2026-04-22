@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         EC2_IP = '54.252.232.174'
-        KEY = 'C:\\Users\\benny\\Downloads\\project.pem'
+        KEY = 'C:\\project.pem'
     }
 
     stages {
